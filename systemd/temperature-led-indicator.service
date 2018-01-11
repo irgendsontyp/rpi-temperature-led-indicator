@@ -1,0 +1,12 @@
+[Unit]
+Description=Lights up an LED, then measures the temperature via a DS18B20 sensor connected to a GPIO pin and lights off the LED when a configurable target temperature is reached. 
+
+[Service]
+ExecStart=/usr/bin/env python3 /usr/local/bin/temperature-led-indicator/main.py
+User=temp-led
+
+[Install]
+WantedBy=multi-user.target
+
+
+
