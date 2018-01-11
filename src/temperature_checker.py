@@ -46,10 +46,11 @@ class TemperatureChecker:
 			# Check if temperature is sinking or has already reached target level
 			if (currentTemperature <= self.__conf.TargetTemperature or (oldTemperature is not None and currentTemperature < oldTemperature)):
 				logging.info("Target temperature has been reached or temperature is sinking.")
+				
 				break
 				
 				
-			if (not self.__exitHelper.sleepWhileNotExitRequested(self.__conf.TemperatureReadSleepInterval)):
+			if (self.__exitHelper.sleepWhileNotExitRequested(self.__conf.TemperatureReadSleepInterval)):
 				logging.info("Temperature sink check loop: Quitting, because application exit has been requested.")
 				
 				return
@@ -69,7 +70,7 @@ class TemperatureChecker:
 				break
 				
 								
-			if (not self.__exitHelper.sleepWhileNotExitRequested(5)):
+			if (self.__exitHelper.sleepWhileNotExitRequested(5)):
 				logging.info("Temperature target level check loop: Quitting, because application exit has been requested.")
 				
 				return
@@ -93,7 +94,7 @@ class TemperatureChecker:
 				logging.error("Error reading temperature: " + str(error) + ".")
 				
 				
-			if (not self.__exitHelper.sleepWhileNotExitRequested(5)):
+			if (self.__exitHelper.sleepWhileNotExitRequested(5)):
 				logging.info("Exitting temperature read loop because application exit has been requested.")
 								
 				return

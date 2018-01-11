@@ -1,5 +1,4 @@
 import threading
-import time
 
 
 class ExitHelper:
@@ -20,10 +19,4 @@ class ExitHelper:
 		
 		
 	def sleepWhileNotExitRequested(self, seconds):		
-		for i in range(1, seconds * 100):
-			time.sleep(0.01)
-			
-			if (self.isExitRequested()):
-				return False
-				
-		return True
+		return self.__exitEvent.wait(seconds)
