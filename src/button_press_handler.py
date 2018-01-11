@@ -11,12 +11,11 @@ class ButtonPressHandler:
 	
 	def __call__(self, pin):		
 		if (self.__lock.acquire(blocking = False)):
-			logging.info("Starting temperature read procedure.")
-			
-			self.__gpioHelper.switchOffErrorLED()
-			
-		
 			try:
+				logging.info("Starting temperature read procedure.")
+			
+				self.__gpioHelper.switchOffErrorLED()
+			
 				self.__temperatureChecker.start()
 			except Exception as error:
 				logging.error("An error occured: " + str(error) + ". Switching on error LED.")
