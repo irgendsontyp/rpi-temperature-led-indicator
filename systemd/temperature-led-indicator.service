@@ -2,7 +2,7 @@
 Description=Lights up an LED, then measures the temperature via a DS18B20 sensor connected to a GPIO pin and lights off the LED when a configurable target temperature is reached. 
 
 [Service]
-ExecStart=/usr/bin/env python3 /usr/local/bin/temperature-led-indicator/main.py
+ExecStart=/usr/local/bin/temperature-led-indicator/env/bin/python -m rpitemperatureledindicator
 User=temp-led
 
 [Install]
