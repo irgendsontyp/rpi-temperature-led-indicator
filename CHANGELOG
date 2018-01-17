@@ -1,0 +1,13 @@
+## [1.2.0] - 17.01.2018
+- Upgrade to irgendsontyp-helpers 1.1.0
+- Rename package to "rpitemperatureledindicator"
+- Remove parent package "irgendsontyp" for package "rpitemperatureledindicator"
+
+
+## [1.1.0] - 15.01.2018
+- Upgrade to irgendsontyp-helpers 1.0.2
+- Add Rpi.GPIO as a dependency
+
+
+## [1.0.0] - 12.01.2018
+- First release
